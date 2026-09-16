@@ -1,0 +1,1 @@
+run_id,date,dataset,condition,dataset_version,manifest_version,split,model,pretrained_checkpoint,seed,image_size,epochs,batch,best_epoch,precision,recall,map50,map50_95,per_class_ap,confusion_matrix_path,false_negative_review_path,parameter_count,model_size_mb,inference_ms_per_image,fps,hardware,software,checkpoint_path,prediction_path,status,notes

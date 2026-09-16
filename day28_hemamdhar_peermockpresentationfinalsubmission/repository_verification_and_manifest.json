@@ -1,0 +1,49 @@
+{
+  "project_name": "AI-Based Underwater Visual Surveillance",
+  "milestone": "Day 28 \u2014 Peer Mock Presentation & Final Submission",
+  "version": "1.0.0",
+  "author": "Hemamdhar Dakarapu",
+  "date": "2026-09-16",
+  "verification_status": "VERIFIED_REPRODUCIBLE",
+  "artifacts": {
+    "model_weights": {
+      "path": "../yolov8n.pt",
+      "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+      "size_bytes": 6549796
+    },
+    "benchmark_table": {
+      "path": "final_results_summary_table.csv",
+      "sha256": "c1316a4d145571561a16e2facba58ec8f0d4805ea19d6889a05cf9a2c6a901ae"
+    },
+    "python_package": {
+      "name": "underwater_surveillance",
+      "version": "1.0.0",
+      "modules": [
+        "underwater_surveillance/__init__.py",
+        "underwater_surveillance/preprocessing.py",
+        "underwater_surveillance/detector.py",
+        "underwater_surveillance/tracker.py",
+        "underwater_surveillance/pipeline.py",
+        "underwater_surveillance/cli.py"
+      ]
+    },
+    "reports_and_slides": {
+      "research_report": "final_submission_research_report.md",
+      "presentation_deck": "final_submission_presentation_deck.md",
+      "peer_defense_log": "peer_mock_presentation_and_defense.md",
+      "future_roadmap": "future_scope_and_roadmap.md"
+    }
+  },
+  "peer_review_evaluation": {
+    "presentation_duration": "14m 45s",
+    "peer_score": "9.74 / 10.0",
+    "verdict": "UNANIMOUS_APPROVAL"
+  },
+  "hardware_validation": {
+    "target_device": "Edge Embedded CPU",
+    "total_latency_ms": 36.18,
+    "throughput_fps": 33.72,
+    "peak_ram_mb": 148.2,
+    "realtime_budget_passed": true
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "project_name": "AI-Based Underwater Visual Surveillance",
+  "review_milestone": "Day 21 - Best Candidate Review",
+  "approved_week4_direction": {
+    "enhancement_pipeline": {
+      "selected_method": "clahe",
+      "clip_limit": 1.5,
+      "tile_grid_size": [8, 8],
+      "color_space": "CIELAB",
+      "channel_processed": "L_channel_only",
+      "preprocessing_latency_ms": 6.2065,
+      "rationale": "Lowest computational overhead among CLAHE variants (+3.76ms over raw) while preventing high-frequency noise amplification observed at clip_limit 3.0"
+    },
+    "control_pipeline": {
+      "selected_method": "raw_v1",
+      "color_space": "RGB",
+      "preprocessing_latency_ms": 2.4435,
+      "rationale": "Mandatory empirical reference control to attribute detection and tracking performance gains directly to photometric preprocessing"
+    },
+    "detection_model": {
+      "architecture": "YOLOv8n",
+      "base_pretrained_weights": "yolov8n.pt",
+      "target_image_size": 320,
+      "confidence_threshold": 0.25,
+      "iou_threshold": 0.50,
+      "parameter_count": 3007793,
+      "model_size_mb": 5.92,
+      "planned_training_budget": {
+        "epochs": 50,
+        "dataset_fraction": 1.0,
+        "batch_size": 16,
+        "optimizer": "auto (SGD/AdamW)",
+        "seed": 20260914
+      }
+    },
+    "tracking_module": {
+      "algorithm": "greedy_iou_with_bytetrack_fallback",
+      "iou_matching_threshold": 0.50,
+      "min_hits_to_confirm": 3,
+      "max_age_unmatched": 5,
+      "status": "exploratory_until_ground_truth_confirmed"
+    },
+    "dataset_split_policy": {
+      "dataset": "DIATAquarium.v4i.yolov8",
+      "manifest_version": "manifest_v1.json",
+      "train_split": "Full training split (15,196 images in manifest, DIAT subset)",
+      "val_split": "Validation split (2,222 images)",
+      "test_split": "954 images (Strictly frozen until Day 26 final evaluation)",
+      "leakage_mitigation": "Group-safe sequence stratification; zero overlap between train, val, and test sequences"
+    },
+    "acceptance_criteria": {
+      "min_map50": 0.40,
+      "min_map50_95": 0.25,
+      "min_fps_target": 25.0,
+      "max_end_to_end_latency_ms": 40.0
+    }
+  },
+  "status": "ready_for_week4_execution"
+}

@@ -1,0 +1,18 @@
+component,parameter_name,frozen_value,unit,selection_basis,robustness_rationale,immutability_flag
+Preprocessing,enhancement_method,CLAHE,string,Day 19 parameter sweep winner,Preserves spatial geometry and boosts local underwater contrast,LOCKED_IMMUTABLE
+Preprocessing,color_space,CIELAB,string,Preserves chrominance fidelity,Operates on luminance only; prevents color distortion in murky water,LOCKED_IMMUTABLE
+Preprocessing,clip_limit,1.5,float,Lowest prep overhead (+3.76ms),Prevents high-frequency noise amplification observed at limit 3.0,LOCKED_IMMUTABLE
+Preprocessing,tile_grid_size,8x8,tuple,Standard spatial tile granularity,Prevents specular reflection halo saturation while equalizing local tiles,LOCKED_IMMUTABLE
+Control,reference_method,raw_v1,string,Mandatory empirical reference,Isolates true scientific delta produced by photometric enhancement,LOCKED_IMMUTABLE
+Detection,architecture,YOLOv8n,string,Compact 3.0M parameter backbone,Real-time CPU execution (33.72 FPS) with low memory footprint (5.92MB),LOCKED_IMMUTABLE
+Detection,input_resolution,320x320,pixels,Balanced speed and detection accuracy,Complies with real-time latency target (under 40ms total),LOCKED_IMMUTABLE
+Detection,confidence_threshold,0.25,float,Standard object proposal threshold,Filters spurious background noise while maintaining candidate recall,LOCKED_IMMUTABLE
+Detection,iou_threshold,0.50,float,Standard NMS suppression threshold,Suppresses duplicate bounding boxes in dense organism clusters,LOCKED_IMMUTABLE
+Detection,training_epochs,50,integer,Full convergence target for Week 4,Overcomes 1-epoch smoke underfitting to extract rich visual features,LOCKED_IMMUTABLE
+Tracking,algorithm,Greedy IoU Tracker,string,Lightweight spatial-continuity association,Low complexity and deterministic matching across sequential frames,LOCKED_IMMUTABLE
+Tracking,iou_matching_threshold,0.50,float,Overlap threshold for track continuity,Maintains trajectory continuity between adjacent video frames,LOCKED_IMMUTABLE
+Tracking,max_age,5,frames,Maximum missed frame tolerance,Maintains tracklet identity across temporary occlusions,LOCKED_IMMUTABLE
+Tracking,min_hits,3,frames,Minimum detections to confirm tracklet,Suppresses false-positive single-frame detection noise,LOCKED_IMMUTABLE
+Split Policy,dataset,DIATAquarium.v4i.yolov8,string,Sequence-safe group structure,Eliminates data leakage risks identified in other sets,LOCKED_IMMUTABLE
+Split Policy,validation_subset,256,images,Deterministic lexicographical subset,Fixed benchmark set for all parameter optimization and ablation,LOCKED_IMMUTABLE
+Split Policy,test_split,954,images,Zero-leakage final test split,Strictly frozen and unread until Day 26 final evaluation,LOCKED_IMMUTABLE

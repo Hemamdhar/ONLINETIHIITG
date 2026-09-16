@@ -1,0 +1,34 @@
+# System & OS Files
+.DS_Store
+Thumbs.db
+
+# Python Cache & Build Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+
+# Heavy Raw Datasets, Processed Image Batches & Intermediate Outputs
+# (Prevents Git indexing >50,000 images and keeps repository lightweight and fast)
+**/raw_data_archive/
+**/prepared_dataset_v1/
+**/enhancement_outputs_v1/
+**/validation_derivatives_v1/
+**/validation_outputs_v1/
+**/inspection_outputs/
+**/day17_outputs/
+**/outputs/
+outputs/
+
+# Large Model Weights & Archives
+*.pt
+*.pth
+*.tar.gz
+*.zip
+*.bin

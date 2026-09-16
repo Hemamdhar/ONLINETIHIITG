@@ -1,0 +1,66 @@
+{
+  "pipeline_name": "AI-Based Underwater Visual Surveillance Pipeline",
+  "milestone": "Day 22 — Final Model / Pipeline Freeze",
+  "status": "FROZEN_IMMUTABLE",
+  "freeze_timestamp": "2026-09-15T23:00:00Z",
+  "frozen_components": {
+    "preprocessing": {
+      "method": "CLAHE",
+      "color_space": "CIELAB",
+      "target_channel": "Lightness (L*)",
+      "clip_limit": 1.5,
+      "tile_grid_size": [8, 8],
+      "chrominance_handling": "a* and b* channels preserved unaltered",
+      "output_format": "RGB",
+      "measured_latency_ms": 6.2065,
+      "delta_prep_vs_raw_ms": 3.7630,
+      "spatial_invariance": "100% bounding box coordinate preservation"
+    },
+    "reference_control": {
+      "method": "raw_v1",
+      "color_space": "RGB",
+      "measured_latency_ms": 2.4435,
+      "role": "Mandatory unenhanced empirical baseline"
+    },
+    "detection_model": {
+      "architecture": "YOLOv8n",
+      "backbone": "CSPDarknet with PAN-FPN neck",
+      "parameter_count": 3007793,
+      "model_size_mb": 5.92,
+      "input_resolution": [320, 320],
+      "input_channels": 3,
+      "confidence_threshold": 0.25,
+      "iou_threshold": 0.50,
+      "device": "cpu",
+      "batch_size": 16,
+      "random_seed": 20260914,
+      "planned_training_epochs": 50
+    },
+    "tracking_module": {
+      "algorithm": "Greedy IoU Tracker with ByteTrack association logic",
+      "iou_threshold": 0.50,
+      "min_hits": 3,
+      "max_age": 5,
+      "state_representation": "[x1, y1, x2, y2, track_id, hit_streak, age]"
+    },
+    "split_policy": {
+      "dataset": "DIATAquarium.v4i.yolov8",
+      "manifest_source": "day11_hemamdhar_visionpreprocessing/prepared_dataset_v1/manifest_v1.json",
+      "validation_subset_size": 256,
+      "test_split_size": 954,
+      "test_split_policy": "FROZEN_UNTOUCHED (Evaluated only once on Day 26)",
+      "leakage_protection": "Group-safe sequence partitioning"
+    },
+    "evaluation_metrics": {
+      "detection": ["Precision", "Recall", "mAP@50", "mAP@50-95", "Per-class AP"],
+      "efficiency": ["Preprocessing Latency (ms)", "Inference Latency (ms)", "Throughput (FPS)"],
+      "tracking": ["Tracklet Count", "Trajectory Continuity", "Fragmentation Rate"]
+    }
+  },
+  "acceptance_criteria": {
+    "min_map50": 0.40,
+    "min_map50_95": 0.25,
+    "min_throughput_fps": 30.0,
+    "max_total_latency_ms": 40.0
+  }
+}

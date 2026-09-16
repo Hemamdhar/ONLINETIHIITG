@@ -1,0 +1,1 @@
+run_id,dataset,split,condition,manifest_version,class_map_version,seed,precision,recall,mAP50,mAP50_95,per_class_AP,rare_class_recall,false_negative_notes,preprocess_ms_per_image,inference_ms_per_image,FPS,UIQM,PSNR,SSIM,hardware,status,notes

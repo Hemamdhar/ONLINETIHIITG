@@ -1,0 +1,53 @@
+{
+  "dataset_version": "prepared_dataset_v1",
+  "review_day": 12,
+  "status": "specification_frozen_release_pending",
+  "evidence_blocker": "Raw archive is not populated; measured Day 8 and Day 10 results are pending.",
+  "datasets": [
+    "Aquatic Plant.v2i.yolov8",
+    "DIATAquarium.v4i.yolov8",
+    "well.v8i.yolov8"
+  ],
+  "preprocessing": {
+    "target_size": [640, 640],
+    "resize": "aspect_preserving_letterbox",
+    "padding_value_rgb": [114, 114, 114],
+    "color_mode": "RGB",
+    "normalization": "divide_by_255",
+    "box_transform": "same_scale_and_padding_then_revalidate"
+  },
+  "augmentation": {
+    "train_only": true,
+    "horizontal_flip_probability": 0.0,
+    "vertical_flip": false,
+    "color_jitter": false,
+    "status": "disabled_by_default_pending_eda_evidence"
+  },
+  "splits": {
+    "target_ratios": { "train": 0.7, "val": 0.15, "test": 0.15 },
+    "seed": 20260914,
+    "group_key": "dataset_and_source_sequence",
+    "exact_duplicate_groups_single_split": true,
+    "required_cross_split_group_overlap": 0
+  },
+  "claims_policy": {
+    "class_merge": "requires_semantic_review_and_mentor_approval",
+    "enhancement": "later_controlled_ablation_not_part_of_v1",
+    "tracking": "exploratory_only_without_persistent_ids_or_ground_truth",
+    "psnr_ssim": "not_claimed_without_valid_reference_pairs"
+  },
+  "release_gates": [
+    "raw_archive_checksums",
+    "complete_image_label_pair_manifest",
+    "valid_retained_yolo_annotations",
+    "day10_eda_and_difficult_sample_review",
+    "zero_cross_split_sequence_and_duplicate_overlap",
+    "prepared_manifest_and_post_transform_validation",
+    "mentor_sign_off"
+  ],
+  "approval": {
+    "mentor": null,
+    "date": null,
+    "conditions": null
+  }
+}

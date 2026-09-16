@@ -1,0 +1,22 @@
+# Dataset V1 detector contract. Keep exports separate because class IDs are dataset-specific.
+path: ../day11_hemamdhar_visionpreprocessing/prepared_dataset_v1
+version: prepared_dataset_v1
+image_size: 640
+train: train
+val: val
+test: test
+
+# Select one dataset export per detector run and use its matching class map.
+datasets:
+  Aquatic_Plant.v2i.yolov8:
+    class_map: ../day11_hemamdhar_visionpreprocessing/class_maps/Aquatic_Plant.v1.yaml
+    dataset_root: train/Aquatic Plant.v2i.yolov8
+  DIATAquarium.v4i.yolov8:
+    class_map: ../day11_hemamdhar_visionpreprocessing/class_maps/DIATAquarium.v1.yaml
+    dataset_root: train/DIATAquarium.v4i.yolov8
+  well.v8i.yolov8:
+    class_map: ../day11_hemamdhar_visionpreprocessing/class_maps/well.v1.yaml
+    dataset_root: train/well.v8i.yolov8
+
+# Populate names only after reading and approving each source data.yaml.
+names: []

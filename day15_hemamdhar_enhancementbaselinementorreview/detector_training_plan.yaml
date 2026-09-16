@@ -1,0 +1,60 @@
+version: day15_detector_baseline_v1
+status: pending_dataset_v1_release
+
+dataset:
+  source: prepared_dataset_v1
+  datasets_are_separate: true
+  image_size: 640
+  class_maps: dataset_specific
+  split_manifest: frozen_group_safe_manifest_v1
+  split_ratios_target:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+  required_cross_split_group_overlap: 0
+
+conditions:
+  - id: raw_v1
+    enhancement: none
+  - id: clahe_v1
+    enhancement: clahe
+    clip_limit: 2.0
+    tile_grid: [8, 8]
+  - id: gamma_v1
+    enhancement: gamma_contrast
+    gamma: 1.0
+    contrast: 1.0
+
+controls:
+  model: mentor_to_confirm
+  pretrained_checkpoint: mentor_to_confirm
+  epochs: mentor_to_confirm
+  optimizer: mentor_to_confirm
+  batch_size: mentor_to_confirm
+  seeds: [20260914, 20260915, 20260916]
+  confidence_threshold: fixed_before_test
+  iou_threshold: fixed_before_test
+  augmentation: same_for_all_conditions
+  test_tuning: prohibited
+
+validation_metrics:
+  - precision
+  - recall
+  - mAP50
+  - mAP50-95
+  - per_class_AP
+  - rare_class_recall
+  - false_negative_review
+  - preprocessing_ms_per_image
+  - inference_ms_per_image
+  - FPS
+
+test_policy:
+  untouched_until_final_selection: true
+  evaluate_selected_condition_once: true
+  report_raw_reference: true
+
+tracking:
+  formal_metrics: false
+  sequence_groups_for_leakage_control: true
+  persistent_object_ids_required: true

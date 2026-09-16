@@ -1,0 +1,75 @@
+{
+  "package": "week2_peer_visual_review",
+  "status": "hypotheses_ready_peer_observations_pending",
+  "independence_constraint": "Compare exported outputs and metadata without sharing implementation code.",
+  "hypotheses": [
+    {
+      "id": "H14-01",
+      "statement": "CLAHE may improve detector recall in dark or low-contrast scenes, but gains may be offset by texture artifacts.",
+      "comparison": "raw_v1 vs clahe_v1",
+      "strata": ["dark", "low_contrast", "small_object"],
+      "evidence": [
+        "paired_visual_ratings",
+        "per_class_recall",
+        "false_negative_examples",
+        "preprocessing_time"
+      ],
+      "decision_rule": "Keep CLAHE only if validation recall and failure-case review improve or remain stable within the runtime budget.",
+      "status": "ready_for_validation"
+    },
+    {
+      "id": "H14-02",
+      "statement": "Photometric enhancement may help visibility while reducing class-cue fidelity in color-cast or turbid scenes.",
+      "comparison": "raw_v1 vs clahe_v1 vs gamma_v1",
+      "strata": ["turbid", "color_cast", "occluded"],
+      "evidence": [
+        "independent_peer_ratings",
+        "per_class_AP",
+        "annotation_readability",
+        "artifact_count"
+      ],
+      "decision_rule": "Reject a visually brighter condition if class discrimination or localization worsens.",
+      "status": "ready_for_validation"
+    },
+    {
+      "id": "H14-03",
+      "statement": "Rare classes and small objects will show larger enhancement variance than common, large objects.",
+      "comparison": "raw_v1 vs selected_enhancement",
+      "strata": ["rare_class", "small_box"],
+      "evidence": [
+        "per_class_AP",
+        "box_area_bins",
+        "peer_agreement",
+        "false_negative_examples"
+      ],
+      "decision_rule": "Report gains and losses by class; do not select a method from aggregate mAP alone.",
+      "status": "ready_for_validation"
+    },
+    {
+      "id": "H14-04",
+      "statement": "Adjacent frames can make random image-level splits appear stronger than sequence-held-out evaluation.",
+      "comparison": "group_safe_split vs random_split_diagnostic",
+      "strata": ["sequence_group", "adjacent_frame"],
+      "evidence": [
+        "cross_split_group_overlap",
+        "metric_delta",
+        "duplicate_hash_overlap"
+      ],
+      "decision_rule": "Use the group-safe split for all claims; random splitting is diagnostic only and never the reported protocol.",
+      "status": "high_priority_leakage_check"
+    },
+    {
+      "id": "H14-05",
+      "statement": "Peer agreement will be lower for ambiguous class boundaries and partial occlusions than for clear objects.",
+      "comparison": "independent visual review",
+      "strata": ["ambiguous_class", "partial_occlusion", "blurred"],
+      "evidence": [
+        "reviewer_agreement",
+        "adjudication_count",
+        "annotation_correction_log"
+      ],
+      "decision_rule": "Escalate disagreements that change class identity, object presence, or split assignment.",
+      "status": "ready_for_peer_review"
+    }
+  ]
+}

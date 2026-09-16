@@ -1,0 +1,18 @@
+{
+  "status": "best_validated_configuration_for_smoke_sweep",
+  "experiment_id": "D19-clahe-1p5x8",
+  "dataset": "DIATAquarium.v4i.yolov8",
+  "split_used_for_selection": "val",
+  "condition": "clahe_v1",
+  "clip_limit": 1.5,
+  "grid_size": 8,
+  "model_checkpoint": "/Users/dakarapuhemamdharnath/Desktop/hemamdhar/day16_hemamdhar_objectdetectionbaseline/outputs/DIATAquarium.v4i.yolov8/raw_v1/train/weights/best.pt",
+  "image_size": 320,
+  "confidence_threshold": 0.25,
+  "iou_threshold": 0.5,
+  "batch": 16,
+  "device": "cpu",
+  "test_touched": false,
+  "selection_rule": "maximize validation detections; break ties with lower inference time",
+  "caveat": "This is not an accuracy winner: the abbreviated checkpoint produced no validated precision/recall/mAP calculation in this sweep."
+}

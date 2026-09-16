@@ -1,0 +1,29 @@
+{
+  "version": "prepared_dataset_v1",
+  "archive_relative_path": "../day7_hemamdhar_initialinspection/raw_data_archive",
+  "output_directory": "prepared_dataset_v1",
+  "image_extensions": [".jpg", ".jpeg", ".png", ".bmp", ".webp"],
+  "target_size": [640, 640],
+  "split_ratios": { "train": 0.7, "val": 0.15, "test": 0.15 },
+  "split_seed": 20260914,
+  "grouping": {
+    "keep_source_sequence_together": true,
+    "keep_exact_duplicates_together": true,
+    "filename_sequence_regex": "^(.+?_mp4)",
+    "fallback": "dataset_and_parent_folder"
+  },
+  "normalization": {
+    "scale": "divide_by_255",
+    "channel_order": "RGB",
+    "mean": [0.0, 0.0, 0.0],
+    "std": [1.0, 1.0, 1.0]
+  },
+  "augmentation": {
+    "train_only": true,
+    "horizontal_flip_probability": 0.0,
+    "vertical_flip": false,
+    "color_jitter": false,
+    "geometric_policy": "letterbox_only"
+  },
+  "min_box_size_pixels": 1
+}

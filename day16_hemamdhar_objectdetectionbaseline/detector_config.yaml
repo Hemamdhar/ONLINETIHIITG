@@ -1,0 +1,36 @@
+version: day16_raw_detector_baseline_v1
+condition: raw_v1
+prepared_dataset_root: ../day11_hemamdhar_visionpreprocessing/prepared_dataset_v1
+manifest: ../day11_hemamdhar_visionpreprocessing/prepared_dataset_v1/manifest_v1.json
+image_size: 640
+model: yolov8n.pt
+pretrained: true
+epochs: 50
+batch: 16
+workers: 2
+optimizer: auto
+learning_rate: null
+seed: 20260914
+confidence_threshold: 0.25
+iou_threshold: 0.50
+project: outputs
+augmentation:
+  enabled: false
+  horizontal_flip_probability: 0.0
+  vertical_flip: false
+  color_jitter: false
+split_policy:
+  group_safe: true
+  required_cross_split_group_overlap: 0
+  test_tuning: false
+metrics:
+  - precision
+  - recall
+  - mAP50
+  - mAP50-95
+  - per_class_AP
+  - confusion_matrix
+  - false_negative_review
+  - model_size_mb
+  - inference_ms_per_image
+  - FPS

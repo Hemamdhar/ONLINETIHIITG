@@ -1,0 +1,72 @@
+{
+  "manifest_title": "Day 22 Final Model & Pipeline Freeze Artifact Manifest",
+  "status": "FROZEN_VALIDATED",
+  "freeze_timestamp": "2026-09-15T23:00:00Z",
+  "upstream_dependencies": [
+    {
+      "milestone": "Day 11 — Dataset Preprocessing & Manifest",
+      "artifact_path": "day11_hemamdhar_visionpreprocessing/prepared_dataset_v1/manifest_v1.json",
+      "sha256": "c06cb5b602512fcf3acf8b11493c59067f4b5fd83854732c3f0d076f2e283bd9",
+      "records_count": 15196,
+      "role": "Source dataset annotations and sequence metadata"
+    },
+    {
+      "milestone": "Day 13 — Enhancement Preparation",
+      "artifact_path": "day13_hemamdhar_enhancementdetectionpreparation/enhance_baselines.py",
+      "sha256": "d05527665af1cbf8352a6d2bac1a26525fa085ed0e40fffcfbdca5c909d2d774",
+      "role": "Photometric transformation primitives (CLAHE, Gamma)"
+    },
+    {
+      "milestone": "Day 19 — Controlled Validation Sweep",
+      "artifact_path": "day19_hemamdhar_controlledexperiments/best_validated_config.json",
+      "sha256": "390aba10559ad51e6c9c5b13d0f38fa912797b2365407532b28f04a10b64e377",
+      "role": "Validation sweep parameter winner (CLAHE clip 1.5, grid 8x8)"
+    },
+    {
+      "milestone": "Day 20 — Robustness & Ablation Study",
+      "artifact_path": "day20_hemamdhar_robustnessablation/robustness_ablation_table_v1.csv",
+      "sha256": "811db4d379566ea0cc2fb577b0e6bd51e04023a920c7a352646ab49c5938edbb",
+      "role": "Quantified component latency deltas and error propagation audit"
+    },
+    {
+      "milestone": "Day 21 — Best Candidate Review",
+      "artifact_path": "day21_hemamdhar_bestcandidatereview/best_candidate_config.json",
+      "sha256": "10d551a444bc12a313e395d49ab46e7c81e7617e8a0920b812b6b12ab0671a4b",
+      "role": "Mentor-approved best-candidate architecture specification"
+    }
+  ],
+  "frozen_artifacts": [
+    {
+      "filename": "frozen_pipeline_config.json",
+      "description": "Canonical machine-readable configuration of the frozen pipeline"
+    },
+    {
+      "filename": "pipeline_freeze_table_v1.csv",
+      "description": "Standardized tabular specification of frozen components and parameters"
+    },
+    {
+      "filename": "frozen_pipeline.py",
+      "description": "Deterministic, production-ready inference and evaluation pipeline module"
+    },
+    {
+      "filename": "technical_selection_rationale.md",
+      "description": "Formal documentation of the technical selection rationale and split governance"
+    },
+    {
+      "filename": "final_pipeline_freeze.ipynb",
+      "description": "Executed interactive Jupyter notebook validating the frozen pipeline"
+    },
+    {
+      "filename": "final_pipeline_freeze_submission.ipynb.json",
+      "description": "Canonical executed JSON notebook document"
+    },
+    {
+      "filename": "frozen_pipeline_architecture.png",
+      "description": "High-resolution end-to-end architecture diagram"
+    },
+    {
+      "filename": "freeze_validation_evidence.png",
+      "description": "Visual multi-metric validation evidence benchmark"
+    }
+  ]
+}

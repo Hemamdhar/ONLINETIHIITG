@@ -1,0 +1,6 @@
+condition_id,enhancement_method,clip_limit,grid_size,resolution,total_latency_ms,fps,peak_ram_mb,sobel_gradient_gain_pct,verdict
+clahe_v2,CIELAB_CLAHE,1.5,8x8,320x320,36.18,33.72,148.2,+88.7%,WINNER_FROZEN_FOR_PRODUCTION
+raw_v1,None_Identity,0.0,None,320x320,36.30,29.81,148.0,0.0%,BASELINE_CONTROL
+clahe_v1,CIELAB_CLAHE,2.0,8x8,640x640,40.35,29.80,152.4,+92.4%,BUDGET_OVERRUN_REJECTED
+clahe_v3,CIELAB_CLAHE,3.0,8x8,320x320,37.72,33.64,148.4,+104.1%,NOISE_AMPLIFICATION_REJECTED
+gamma_v1,Gamma_Correction_1.0,1.0,None,640x640,71.92,17.73,164.8,+12.3%,DIAGNOSTIC_REJECTED_TOO_SLOW

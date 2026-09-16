@@ -1,0 +1,22 @@
+{
+  "version": "day19_clahe_validation_search_v1",
+  "dataset": "DIATAquarium.v4i.yolov8",
+  "selection_split": "val",
+  "test_tuning": false,
+  "test_evaluation_performed": false,
+  "model_checkpoint": "../day16_hemamdhar_objectdetectionbaseline/outputs/DIATAquarium.v4i.yolov8/raw_v1/train/weights/best.pt",
+  "image_size": 320,
+  "confidence_threshold": 0.25,
+  "iou_threshold": 0.5,
+  "batch": 16,
+  "device": "cpu",
+  "search": {
+    "candidate": "clahe_v1",
+    "clip_limit": [1.5, 2.0, 3.0],
+    "grid_size": [8]
+  },
+  "control": {
+    "condition": "raw_v1"
+  },
+  "selection_rule": "maximize validation detections, then minimize inference_ms_per_image"
+}
