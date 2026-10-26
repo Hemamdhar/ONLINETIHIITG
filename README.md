@@ -1,14 +1,18 @@
 # Underwater Vision-Based Surveillance Using Machine Learning and Artificial Intelligence
 
 [![Internship](https://img.shields.io/badge/TIH%20IIT%20Guwahati-4--Week%20Internship-0056b3.svg)](#)
+[![Repository](https://img.shields.io/badge/Repository-ONLINETIHIITG-darkblue.svg)](https://github.com/Hemamdhar/ONLINETIHIITG)
+[![Tasks](https://img.shields.io/badge/Task--Structure-Day__1__Task__1%20to%20Day__28__Task__3-orange.svg)](TASK_SUBMISSION_INDEX.md)
 [![Status](https://img.shields.io/badge/Status-100%25%20Completed-brightgreen.svg)](#)
 [![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11-blue.svg)](#)
 [![YOLOv8](https://img.shields.io/badge/Model-YOLOv8%20Object%20Detection-orange.svg)](#)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#)
 
 > **Technology Innovation Hub (TIH), IIT Guwahati**  
-> **4-Week Daily Internship Project Phase (28 Days)**  
+> **4-Week Daily Internship Project Phase (28 Days) — Cohort 4 (Group O2)**  
 > **Author & Intern:** Hemamdhar Dakarapu  
+> **Official Repository Name:** `ONLINETIHIITG` ([GitHub Link](https://github.com/Hemamdhar/ONLINETIHIITG))  
+> **Master Task Matrix:** See [`TASK_SUBMISSION_INDEX.md`](TASK_SUBMISSION_INDEX.md) for full day-wise and task-wise navigation (`Day_1_Task_1` to `Day_28_Task_3`).  
 > **Project Scope:** Software-only, end-to-end underwater image enhancement, robust object detection, multi-object tracking, and edge optimization.
 
 ---
@@ -158,8 +162,8 @@ All 12 mandatory deliverables listed on **Page 7** of the official TIH IIT Guwah
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/underwater-vision-surveillance.git
-cd underwater-vision-surveillance
+git clone https://github.com/Hemamdhar/ONLINETIHIITG.git
+cd ONLINETIHIITG
 ```
 
 ### 2. Set Up Virtual Environment
