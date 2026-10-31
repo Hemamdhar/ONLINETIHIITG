@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#)
 
 > **Technology Innovation Hub (TIH), IIT Guwahati**  
-> **4-Week Daily Internship Project Phase (28 Days) — Cohort 4 (Group O2)**  
+> **4-Week Daily Internship Project Phase (28 Days) — Cohort 4 (Group O2)**   
 > **Author & Intern:** Hemamdhar Dakarapu  
 > **Official Repository Name:** `ONLINETIHIITG` ([GitHub Link](https://github.com/Hemamdhar/ONLINETIHIITG))  
 > **Master Task Matrix:** See [`TASK_SUBMISSION_INDEX.md`](TASK_SUBMISSION_INDEX.md) for full day-wise and task-wise navigation (`Day_1_Task_1` to `Day_28_Task_3`).  
